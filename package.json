@@ -1,0 +1,24 @@
+{
+  "name": "good-samaritan-medical-center",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Medical Center Management System for Good Samaritan Medical Center",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "db:init": "node --env-file=.env.local db/init.mjs",
+    "db:seed": "node --env-file=.env.local db/seed.mjs"
+  },
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jose": "^5.9.3",
+    "next": "^14.2.15",
+    "pg": "^8.13.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
