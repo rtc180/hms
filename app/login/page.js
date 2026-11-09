@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { organization } from '@/config/organization';
 import { apiFetch } from '@/lib/clientApi';
@@ -36,6 +37,9 @@ export default function LoginPage() {
     <main className="login">
       {/* Branding panel */}
       <section className="login-side">
+        <Link className="login-back-link" href="/" aria-label="Back to website">
+          <span aria-hidden="true">←</span> Back to website
+        </Link>
         <Image src={organization.logo} alt={`${organization.name} logo`} width={220} height={220} priority />
         <h1>{organization.name}</h1>
         <p>Patient records, outpatient visits and inpatient admissions in one place.</p>

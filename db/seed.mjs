@@ -1,11 +1,9 @@
 // Adds the three starter accounts and a little sample data so you can try the system.
 import bcrypt from 'bcryptjs';
 import pg from 'pg';
+import { getDatabaseConfig } from '../lib/database-config.mjs';
 
-const client = new pg.Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: process.env.DATABASE_SSL === 'true' ? { rejectUnauthorized: false } : false,
-});
+const client = new pg.Client(getDatabaseConfig());
 
 // Starter accounts. CHANGE THESE PASSWORDS after your first login.
 const starterUsers = [
