@@ -35,10 +35,10 @@ export async function PUT(request) {
     website: clean(body.website, 255),
     registration: clean(body.registration, 100),
   };
-  if (!settings.name || !settings.shortName || !settings.address || !settings.phone || !settings.email) {
-    return fail('Name, short name, address, phone and email are required');
+  if (!settings.name || !settings.shortName || !settings.phone) {
+    return fail('Name, short name and phone are required');
   }
-  if (!isEmail(settings.email)) return fail('Enter a valid company email address');
+  if (settings.email && !isEmail(settings.email)) return fail('Enter a valid company email address');
 
   const { rows } = await query(
     `INSERT INTO organization_settings

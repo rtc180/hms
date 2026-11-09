@@ -25,13 +25,14 @@ export default function ReportHeader({ title, subtitle }) {
         <img src={organization.logo} alt={`${company.name} logo`} width="90" height="90" />
         <div>
           <h2>{company.name}</h2>
-          <p>{company.address}</p>
-          <p>
-            Tel: {company.phone} | Email: {company.email}
-          </p>
-          <p>
-            {[company.website, company.registration].filter(Boolean).join(' | ')}
-          </p>
+          {company.address && <p>{company.address}</p>}
+          <p>{[
+            company.phone && `Tel: ${company.phone}`,
+            company.email && `Email: ${company.email}`,
+          ].filter(Boolean).join(' | ')}</p>
+          {[company.website, company.registration].filter(Boolean).length > 0 && (
+            <p>{[company.website, company.registration].filter(Boolean).join(' | ')}</p>
+          )}
         </div>
       </div>
 

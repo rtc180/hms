@@ -123,16 +123,16 @@ export default function OrganizationSettingsPage() {
                 <input id="company-tagline" maxLength={200} value={form.tagline} onChange={change('tagline')} />
               </div>
               <div className="field">
-                <label htmlFor="company-address">Address</label>
-                <input id="company-address" required maxLength={255} value={form.address} onChange={change('address')} />
+                <label htmlFor="company-address">Address (optional)</label>
+                <input id="company-address" maxLength={255} value={form.address} onChange={change('address')} />
               </div>
               <div className="field">
                 <label htmlFor="company-phone">Phone</label>
                 <input id="company-phone" required maxLength={40} value={form.phone} onChange={change('phone')} />
               </div>
               <div className="field">
-                <label htmlFor="company-email">Email</label>
-                <input id="company-email" type="email" required maxLength={255} value={form.email} onChange={change('email')} />
+                <label htmlFor="company-email">Email (optional)</label>
+                <input id="company-email" type="email" maxLength={255} value={form.email} onChange={change('email')} />
               </div>
               <div className="field">
                 <label htmlFor="company-website">Website</label>

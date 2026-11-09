@@ -198,9 +198,9 @@ CREATE TABLE IF NOT EXISTS organization_settings (
   name         VARCHAR(160) NOT NULL,
   short_name   VARCHAR(40) NOT NULL,
   tagline      VARCHAR(200) NOT NULL,
-  address      VARCHAR(255) NOT NULL,
+  address      VARCHAR(255) NOT NULL DEFAULT '',
   phone        VARCHAR(40) NOT NULL,
-  email        VARCHAR(255) NOT NULL,
+  email        VARCHAR(255) NOT NULL DEFAULT '',
   website      VARCHAR(255) NOT NULL DEFAULT '',
   registration VARCHAR(100) NOT NULL DEFAULT '',
   updated_at   TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -211,9 +211,19 @@ INSERT INTO organization_settings
   (id, name, short_name, tagline, address, phone, email, website, registration)
 VALUES
   (1, 'Good Samaritan Medical Center', 'GSMC', 'Compassionate care for every patient',
-   '123 Samaritan Road, Harare, Zimbabwe', '+263 242 000 000',
-   'info@goodsamaritan.example', 'www.goodsamaritan.example', 'Reg. No. MC-0000')
+   '', '+263 775 606 149',
+   '', 'https://rtc180.github.io/goodsamaritan/', '')
 ON CONFLICT (id) DO NOTHING;
+
+UPDATE organization_settings
+SET address = '',
+    phone = '+263 775 606 149',
+    email = '',
+    website = 'https://rtc180.github.io/goodsamaritan/',
+    registration = ''
+WHERE id = 1
+  AND phone = '+263 242 000 000'
+  AND email = 'info@goodsamaritan.example';
 
 -- ---------------------------------------------------------------------
 -- INDEXES : make filtering and reports fast
