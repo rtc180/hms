@@ -2,6 +2,7 @@
 import { Figtree } from 'next/font/google';
 import './globals.css';
 import { organization } from '@/config/organization';
+import { getSiteUrl } from '@/lib/site-url.mjs';
 
 // Self-hosted Google font (fast, no tracking, works with our strict CSP)
 const figtree = Figtree({
@@ -11,7 +12,7 @@ const figtree = Figtree({
 });
 
 // Public site address, used to build absolute URLs for search engines
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+const siteUrl = getSiteUrl();
 
 // SEO metadata shared by all pages
 export const metadata = {

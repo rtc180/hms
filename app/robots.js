@@ -1,5 +1,7 @@
 // Tells search engines what they may index. Private areas are blocked.
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+import { getSiteUrl } from '@/lib/site-url.mjs';
+
+const siteUrl = getSiteUrl();
 
 export default function robots() {
   return {

@@ -11,7 +11,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 // Read the SQL text
 const sql = readFileSync(path.join(here, 'schema.sql'), 'utf8');
 
-// Connect using the DATABASE_URL from .env.local
+// Connect using DATABASE_URL from the environment.
 const client = new pg.Client(getDatabaseConfig());
 
 try {

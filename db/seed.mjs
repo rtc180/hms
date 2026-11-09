@@ -37,6 +37,11 @@ const sampleVisits = [
   [0, 200, 'Back pain',                     'Muscle strain',         'Ibuprofen and rest',                     'treated'],
 ];
 
+if (process.env.NODE_ENV === 'production') {
+  console.error('Refusing to seed demo accounts and sample patient data in production.');
+  process.exit(1);
+}
+
 try {
   await client.connect();
 

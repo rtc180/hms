@@ -7,7 +7,7 @@ export const organization = {
   address: '',
   phone: '+263 775 606 149',
   email: '',
-  website: 'https://rtc180.github.io/goodsamaritan/',
+  website: '',
   registration: '',
   logo: '/logo.png',                              // Logo file inside the /public folder
 };

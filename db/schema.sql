@@ -212,18 +212,23 @@ INSERT INTO organization_settings
 VALUES
   (1, 'Good Samaritan Medical Center', 'GSMC', 'Compassionate care for every patient',
    '', '+263 775 606 149',
-   '', 'https://rtc180.github.io/goodsamaritan/', '')
+   '', '', '')
 ON CONFLICT (id) DO NOTHING;
 
 UPDATE organization_settings
 SET address = '',
     phone = '+263 775 606 149',
     email = '',
-    website = 'https://rtc180.github.io/goodsamaritan/',
+    website = '',
     registration = ''
 WHERE id = 1
   AND phone = '+263 242 000 000'
   AND email = 'info@goodsamaritan.example';
+
+UPDATE organization_settings
+SET website = ''
+WHERE id = 1
+  AND website = 'https://rtc180.github.io/goodsamaritan/';
 
 -- ---------------------------------------------------------------------
 -- INDEXES : make filtering and reports fast
